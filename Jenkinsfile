@@ -19,7 +19,7 @@ pipeline {
             }
         }
 
-        // Build des images Docker - étapes séparées
+
         stage('Build Hotel Service') {
             steps {
                 script {
@@ -60,7 +60,7 @@ pipeline {
             }
         }
 
-        // Scan Trivy - étapes séparées
+
         stage('Scan Hotel Service') {
             steps {
                 script {
@@ -156,23 +156,7 @@ pipeline {
             }
         }
 
-        stage('List Docker Images') {
-            steps {
-                sh 'docker images | grep ${DOCKER_REGISTRY}'
-            }
-        }
     }
 
-    post {
-        always {
-            sh 'docker logout'
-            sh 'docker system prune -f'
-        }
-        success {
-            echo ' Toutes les images ont été buildées, scannées et push avec succès!'
-        }
-        failure {
-            echo ' Erreur lors du pipeline, vérifiez les logs ci-dessus.'
-        }
-    }
+
 }
