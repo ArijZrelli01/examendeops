@@ -12,7 +12,7 @@ pipeline {
                     branches: [[name: '*/main']],  // ou '*/master' selon ta branche
                     extensions: [],
                     userRemoteConfigs: [[
-                        url: 'https://github.com/ArijZrelli01/ton-repo.git',
+                        url: 'https://github.com/ArijZrelli01/examendeops.git',
                         credentialsId: 'github-arij-token'
                     ]]
                 )
